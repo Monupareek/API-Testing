@@ -30,7 +30,7 @@ app.post('/login', async (req, res) => {
             if (isPasswordValid) {
                 const payload = { id: findUser._id  , email: findUser.email /* , password : findUser.password */};
                 const token = jwt.sign(payload,sec_key, { expiresIn: "60s" });
-                res.status(200).json({ message: 'login successful', token });
+                res.status(200).json({ message: 'login', token });
             } else {
                 res.status(401).json({ message: 'invalid email/password' });
             }
